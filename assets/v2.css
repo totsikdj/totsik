@@ -2,7 +2,7 @@
 @font-face{font-family:Archivo;src:url(ArchivoS-Bold.ttf) format('truetype');font-weight:700;font-display:swap}
 @font-face{font-family:Inter;src:url(InterS-Regular.ttf) format('truetype');font-weight:400;font-display:swap}
 @font-face{font-family:Inter;src:url(InterS-SemiBold.ttf) format('truetype');font-weight:600;font-display:swap}
-:root{--bg:#0B0B0D;--pan:#151518;--ink:#F4F1EE;--mut:#948E88;--ac:#FF5A2E;--wa:#25D366;--ln:#2A2A30;--pad:18px;--max:1080px}
+:root{--bg:#0B0B0D;--pan:#151518;--ink:#F4F1EE;--mut:#948E88;--ac:#2ECC71;--wa:#25D366;--ln:#2A2A30;--pad:18px;--max:1080px}
 *{margin:0;padding:0;box-sizing:border-box;min-width:0}
 html{scroll-behavior:smooth;scroll-padding-top:66px;-webkit-text-size-adjust:100%}
 body{background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif;
@@ -51,7 +51,7 @@ p{color:#CFC9C3;text-wrap:pretty}
 .ctas{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
 .ctas .cta{flex:1 1 200px}
 @media (min-width:560px){.ctas .cta{flex:0 0 auto}}
-@media (hover:hover){.cta:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(255,90,46,.26)}
+@media (hover:hover){.cta:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(46,204,113,.26)}
  .cta.ghost:hover{border-color:var(--ac);color:var(--ac);box-shadow:none}
  .cta.wa:hover{box-shadow:0 10px 26px rgba(37,211,102,.3)}}
 
@@ -84,7 +84,7 @@ p{color:#CFC9C3;text-wrap:pretty}
 .vthumb img{width:100%;height:100%;object-fit:cover}
 .vthumb .sh{position:absolute;inset:0;background:linear-gradient(transparent 45%,rgba(11,11,13,.6))}
 .play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:clamp(44px,12vw,54px);aspect-ratio:1;
-  border-radius:50%;background:var(--ac);box-shadow:0 0 0 9px rgba(255,90,46,.18);display:grid;place-items:center}
+  border-radius:50%;background:var(--ac);box-shadow:0 0 0 9px rgba(46,204,113,.18);display:grid;place-items:center}
 .play:after{content:"";border-left:clamp(14px,3.8vw,17px) solid #0B0B0D;
   border-top:clamp(8px,2.2vw,10px) solid transparent;border-bottom:clamp(8px,2.2vw,10px) solid transparent;margin-left:4px}
 .vb{padding:13px 15px 16px}

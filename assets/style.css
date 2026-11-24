@@ -5,7 +5,7 @@
 
 :root{
   --bg:#0B0B0D; --pan:#151518; --ink:#F4F1EE; --mut:#948E88;
-  --ac:#FF5A2E; --wa:#25D366; --ln:#2A2A30;
+  --ac:#2ECC71; --wa:#25D366; --ln:#2A2A30;
   --pad:18px; --max:1180px;
   --step:clamp(15px,3.6vw,16.5px);
 }
@@ -70,7 +70,7 @@ p{color:#CFC9C3;text-wrap:pretty}
 .cta.ghost{background:transparent;color:var(--ink);border-color:var(--ln)}
 .cta.wa{background:var(--wa);color:#08130B}
 @media (hover:hover){
-  .cta:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(255,90,46,.26)}
+  .cta:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(46,204,113,.26)}
   .cta.ghost:hover{border-color:var(--ac);color:var(--ac);box-shadow:none}
   .cta.wa:hover{box-shadow:0 10px 26px rgba(37,211,102,.28)}
 }
@@ -119,7 +119,7 @@ p{color:#CFC9C3;text-wrap:pretty}
 .vthumb img{width:100%;height:100%;object-fit:cover}
 .vthumb .sh{position:absolute;inset:0;background:linear-gradient(transparent 45%,rgba(11,11,13,.6))}
 .play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:clamp(46px,12vw,56px);aspect-ratio:1;
-  border-radius:50%;background:var(--ac);box-shadow:0 0 0 9px rgba(255,90,46,.18);display:grid;place-items:center}
+  border-radius:50%;background:var(--ac);box-shadow:0 0 0 9px rgba(46,204,113,.18);display:grid;place-items:center}
 .play:after{content:"";border-left:clamp(15px,4vw,18px) solid #0B0B0D;
   border-top:clamp(9px,2.3vw,11px) solid transparent;border-bottom:clamp(9px,2.3vw,11px) solid transparent;margin-left:4px}
 .vb{padding:14px 16px 18px}
@@ -235,7 +235,7 @@ footer li{list-style:none;margin-bottom:8px;font-size:14px;color:#CFC9C3}
 .secthead{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;margin:-4px 0 18px}
 .cta.sm{padding:10px 16px;font-size:11.5px}
 .pcard .ph{position:relative}
-.play.sm{width:44px;box-shadow:0 0 0 7px rgba(255,90,46,.18)}
+.play.sm{width:44px;box-shadow:0 0 0 7px rgba(46,204,113,.18)}
 .play.sm:after{border-left-width:14px;border-top-width:8px;border-bottom-width:8px}
 
 /* blocos de musica */
@@ -354,7 +354,7 @@ header .bar{padding:10px var(--pad);flex-wrap:nowrap;gap:10px;position:relative}
 .burger i:nth-child(1){top:0}
 .burger i:nth-child(2){top:6px}
 .burger i:nth-child(3){top:12px}
-.navt:checked ~ .burger-btn{border-color:var(--ac);background:rgba(255,90,46,.1)}
+.navt:checked ~ .burger-btn{border-color:var(--ac);background:rgba(46,204,113,.1)}
 .navt:checked ~ .burger-btn .burger i{background:var(--ac)}
 .navt:checked ~ .burger-btn .burger i:nth-child(1){top:6px;transform:rotate(45deg)}
 .navt:checked ~ .burger-btn .burger i:nth-child(2){opacity:0;transform:scaleX(.2)}
@@ -373,7 +373,7 @@ header .bar{padding:10px var(--pad);flex-wrap:nowrap;gap:10px;position:relative}
   header nav li{list-style:none}
   header nav a{display:block;width:100%;padding:13px 14px;border-radius:8px;border:0;
     font-size:12px;letter-spacing:.14em}
-  header nav a.on{background:rgba(255,90,46,.12)}
+  header nav a.on{background:rgba(46,204,113,.12)}
 }
 @media (min-width:860px){
   .burger-btn,.navscrim{display:none}
@@ -438,4 +438,4 @@ header .bar{padding:10px var(--pad);flex-wrap:nowrap;gap:10px;position:relative}
 .biorow img{object-position:var(--opd,50% 0%)}
 @media (max-width:759px){.biorow img{object-position:var(--opm,50% 20%)}}
 .btxt p b,.qtxt .prose b{font-weight:600;color:var(--ink)}
-.btxt p b{box-shadow:inset 0 -0.42em 0 rgba(255,90,46,.14)}
+.btxt p b{box-shadow:inset 0 -0.42em 0 rgba(46,204,113,.14)}
