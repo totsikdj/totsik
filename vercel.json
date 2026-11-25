@@ -5,22 +5,65 @@
   "headers": [
     {
       "source": "/assets/(.*).(jpg|png|webp|avif|ttf|woff2|pdf)",
-      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
     },
     {
       "source": "/assets/(.*).(css|js)",
-      "headers": [{ "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }]
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
     },
     {
       "source": "/(.*).html",
-      "headers": [{ "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }]
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
     },
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
       ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/sobre",
+      "destination": "/#sobre",
+      "permanent": true
+    },
+    {
+      "source": "/sobre.html",
+      "destination": "/#sobre",
+      "permanent": true
+    },
+    {
+      "source": "/musica",
+      "destination": "/#som",
+      "permanent": true
+    },
+    {
+      "source": "/musica.html",
+      "destination": "/#som",
+      "permanent": true
     }
   ]
 }
