@@ -760,3 +760,21 @@ body.atend .fic[aria-label="WhatsApp"] svg,body.atend footer .fic[aria-label="Wh
   footer .fbot > span:last-child{text-align:right}
   footer .fbot .frs{font-size:9.5px;letter-spacing:.14em}
 }
+
+/* rodapé: no hover cada ícone ganha a cor da sua rede (só na animação) */
+@media (hover:hover){
+  footer .fic svg{transition:fill .2s}
+  footer .fic[aria-label="Instagram"]:hover svg{fill:#E1306C}
+  footer .fic[aria-label="SoundCloud"]:hover svg{fill:#FF5500}
+  footer .fic[aria-label="YouTube"]:hover svg{fill:#FF0000}
+  footer .fic[aria-label="Spotify"]:hover svg{fill:#1DB954}
+  footer .fic[aria-label="WhatsApp"]:hover svg{fill:#25D366}
+}
+/* rodapé: ícones logo depois de "Redes sociais"; "made by humans" fica na direita */
+footer .fbot{justify-content:flex-start}
+footer .fbot .fics{margin-right:auto}
+@media (max-width:759px){
+  footer .fbot > span.frs{flex:none}
+  footer .fbot .fics{justify-content:flex-start}
+}
+@media (max-width:759px){footer .fbot > span.frs{width:min-content}}
