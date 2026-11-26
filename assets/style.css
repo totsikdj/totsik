@@ -642,3 +642,5 @@ body.hasmp .wafab{bottom:calc(104px + env(safe-area-inset-bottom))}
 .qpics .a{grid-column:2;grid-row:1/3}
 .qpics .b{grid-column:1;grid-row:1}
 .qpics .c{grid-column:1;grid-row:2}
+/* conquistas: versão justificada escolhida pelo Totsik */
+#conquistas .box p{text-align:justify;hyphens:none}
