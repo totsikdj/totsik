@@ -605,3 +605,15 @@ body.hasmp .mplayer{transform:none}
 body.hasmp .wafab{bottom:calc(60px + env(safe-area-inset-bottom))}
 @media (min-width:760px){body.hasmp .wafab{bottom:66px}}
 body.hasmp footer{padding-bottom:calc(48px + 60px)}
+
+/* ============ ajustes 3 ============ */
+/* carrossel de fotos gira sozinho, como o letreiro (para no hover) */
+.igal{overflow:hidden}
+.igal .gtrack{overflow:visible;scroll-snap-type:none;width:max-content;animation:gscroll var(--gdur,70s) linear infinite}
+.igal .gtrack figure{flex:0 0 auto;width:clamp(190px,24vw,260px)}
+@keyframes gscroll{to{transform:translateX(calc(-50% - 5px))}}
+@media (hover:hover){.igal:hover .gtrack{animation-play-state:paused}}
+@media (prefers-reduced-motion:reduce){.igal .gtrack{animation:none}.igal{overflow-x:auto}}
+
+/* letreiro do hero fica acima do mini-player */
+body.hasmp .vhero{min-height:clamp(480px,calc(100svh - var(--hh,72px) - 46px),860px)}
