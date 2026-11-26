@@ -588,7 +588,7 @@ section[id]{scroll-margin-top:var(--hh,72px)}
 .gig.past{display:none}
 
 /* contato: laranja menos saturado */
-.strip.contact{background:#D9805F}
+.strip.contact{background:#F26A3B}
 
 /* rodapé: Brasil com S à esquerda, made by humans à direita */
 .fbot{justify-content:space-between}
