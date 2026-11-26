@@ -711,3 +711,13 @@ body.hasmp .wafab{bottom:calc(104px + env(safe-area-inset-bottom))}
   .fic{width:36px;height:36px}
   .fic svg{width:16px;height:16px}
 }
+
+/* ============ ajustes 10: só celular ============ */
+@media (max-width:759px){.wafab{transition:opacity .35s ease,transform .35s ease}}
+@media (max-width:759px){
+  /* fim da página: botão flutuante do WhatsApp some e o ícone do rodapé acende em verde */
+  body.atend .wafab{opacity:0;transform:scale(.85);pointer-events:none}
+  .fic[aria-label="WhatsApp"]{transition:background .35s,border-color .35s}
+  body.atend .fic[aria-label="WhatsApp"]{background:var(--wa);border-color:var(--wa)}
+  body.atend .fic[aria-label="WhatsApp"] svg{fill:#08130B}
+}
