@@ -644,3 +644,10 @@ body.hasmp .wafab{bottom:calc(104px + env(safe-area-inset-bottom))}
 .qpics .c{grid-column:1;grid-row:2}
 /* conquistas: versão justificada escolhida pelo Totsik */
 #conquistas .box p{text-align:justify;hyphens:none}
+
+/* ============ ajustes 7 ============ */
+/* sobre: foto maior 20% mais estreita (corta a direita) e mais espaço para o texto */
+.qpics{grid-template-columns:1fr 1fr}
+@media (min-width:980px){
+  #sobre .quem{grid-template-columns:1.32fr .78fr;gap:40px}
+}
