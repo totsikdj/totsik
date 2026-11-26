@@ -742,3 +742,21 @@ footer .fbot .fics{flex-wrap:nowrap;gap:10px}
 body.hasmp footer{padding-bottom:calc(26px + 60px)}
 /* rodapé: "Redes sociais" em laranja no canto esquerdo, no estilo dos títulos das seções */
 footer .fbot .frs{font-family:Archivo;font-weight:700;font-size:clamp(10.5px,2.6vw,12px);letter-spacing:.22em;text-transform:uppercase;color:var(--ac)}
+
+/* rodapé: ícones com a cor de cada rede, botão cinza com borda mais clara */
+footer .fic{background:var(--pan);border-color:#4A4A52}
+footer .fic[aria-label="Instagram"] svg{fill:#E1306C}
+footer .fic[aria-label="SoundCloud"] svg{fill:#FF5500}
+footer .fic[aria-label="YouTube"] svg{fill:#FF0000}
+footer .fic[aria-label="Spotify"] svg{fill:#1DB954}
+footer .fic[aria-label="WhatsApp"] svg{fill:#25D366}
+@media (hover:hover){footer .fic:hover{border-color:#8A8A94}}
+body.atend footer .fic[aria-label="WhatsApp"]{background:var(--wa);border-color:var(--wa)}
+body.atend footer .fic[aria-label="WhatsApp"] svg{fill:#08130B}
+/* rodapé: frases e ícones alinhados na mesma linha (centro vertical) */
+footer .fbot{align-items:center}
+footer .fbot > span{line-height:1}
+@media (max-width:759px){
+  /* celular: ícones ocupam a largura toda, o primeiro alinhado com "Redes sociais" e o último com "made by humans" */
+  footer .fbot .fics{justify-content:space-between}
+}
