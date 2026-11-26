@@ -740,3 +740,5 @@ footer .fbot .fics{flex-wrap:nowrap;gap:10px}
   footer .fbot .fic svg{width:18px;height:18px}
 }
 body.hasmp footer{padding-bottom:calc(26px + 60px)}
+/* rodapé: "Redes sociais" em laranja no canto esquerdo, no estilo dos títulos das seções */
+footer .fbot .frs{font-family:Archivo;font-weight:700;font-size:clamp(10.5px,2.6vw,12px);letter-spacing:.22em;text-transform:uppercase;color:var(--ac)}
