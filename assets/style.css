@@ -803,3 +803,12 @@ footer .fic[aria-label="WhatsApp"] svg,body.atend footer .fic[aria-label="WhatsA
   .mplayer.on .mpp span{width:10px;height:12px;border:0;margin:0;border-left:3px solid #0B0B0D;border-right:3px solid #0B0B0D}
   .mpt{display:block;flex:1;min-width:0;font-size:12.5px;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 }
+/* mini-player no celular: título + onda do set com o andamento */
+.mpw{display:none}
+@media (max-width:759px){
+  .mpw{display:flex;flex-direction:column;gap:3px;flex:1;min-width:0}
+  .mpw .mpt{flex:none;font-size:11.5px;line-height:1.2}
+  .mpwl{display:block;height:18px}
+  .mpc{display:block;width:100%;height:18px}
+}
+@media (max-width:759px){body.hasmp .vhero{min-height:clamp(480px,calc(100svh - var(--hh,72px) - 52px),860px)}}
