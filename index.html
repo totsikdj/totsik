@@ -6,7 +6,7 @@
 <title>Totsik — DJ · São Paulo</title>
 <meta name="description" content="Totsik (Ayrton Siqueira): DJ de Afro House, Organic House, Indie Dance e Brasilidades em São Paulo.">
 <meta property="og:title" content="Totsik — DJ · São Paulo"><meta property="og:description" content="Totsik (Ayrton Siqueira): DJ de Afro House, Organic House, Indie Dance e Brasilidades em São Paulo."><meta property="og:type" content="website">
-<link rel="stylesheet" href="assets/style.css?v=home5">
+<link rel="stylesheet" href="assets/style.css?v=home6">
 <script src="assets/rails.js?v=334a7b03" defer></script>
 </head>
 <body>
@@ -156,27 +156,36 @@
         onError:function(){ if(k!==front&&pending){ i=(i+1)%clips.length; ps[k].loadVideoById({videoId:clips[i][0],startSeconds:clips[i][1]}); } }
       }});
   }
-  // SETTLE: espera o player tocar de verdade antes de mostrar, para nunca
-  // aparecer capa, carregando ou ícone de play/pause do YouTube
-  var SETTLE=900, started=false;
+  // Só mostra um vídeo depois que ele já andou ADV segundos tocando de verdade.
+  // Assim nunca aparece capa, carregando ou o ícone de play/pause que o
+  // YouTube desenha no começo da reprodução. O anterior nunca é pausado
+  // (pausar e retomar faz o YouTube desenhar o ícone de novo): ele só fica
+  // escondido até ser trocado pelo próximo corte.
+  var ADV=1.6, started=false, waiting=[false,false];
+  function whenAdvanced(k,from,cb){
+    if(waiting[k]) return; waiting[k]=true;
+    var tries=0;
+    (function poll(){
+      var t=0; try{t=ps[k].getCurrentTime()||0;}catch(_){}
+      if(t>=from+ADV||tries++>60){ waiting[k]=false; cb(); }
+      else { setTimeout(poll,120); }
+    })();
+  }
   function onState(k,st){
-    // se o navegador pausar o vídeo da frente, volta para a foto em vez de mostrar o player parado
-    if(k===front&&started&&!pending&&(st===2||st===0)){ hero.classList.remove('playing'); return; }
     if(st!==1) return;
-    if(k===front&&started){ hero.classList.add('playing'); return; }
     if(k===front&&!started){
       started=true;
-      setTimeout(function(){ hero.classList.add('playing'); slots[k].classList.add('on'); },SETTLE);
-      timer=setTimeout(next,CLIP*1000);
+      whenAdvanced(k,clips[0][1],function(){
+        hero.classList.add('playing'); slots[k].classList.add('on');
+        timer=setTimeout(next,CLIP*1000);
+      });
     } else if(k!==front&&pending){
       pending=false;
-      setTimeout(function(){
+      whenAdvanced(k,clips[i][1],function(){
         slots[k].classList.add('on'); slots[front].classList.remove('on');
-        var old=front; front=k;
-        // só pausa o anterior depois que ele já sumiu por completo
-        setTimeout(function(){ if(old!==front){ try{ps[old].pauseVideo();}catch(_){} } },1500);
-        clearTimeout(timer); timer=setTimeout(next,CLIP*1000-SETTLE);
-      },SETTLE);
+        front=k;
+        clearTimeout(timer); timer=setTimeout(next,CLIP*1000);
+      });
     }
   }
   function next(){

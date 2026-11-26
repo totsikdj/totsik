@@ -537,3 +537,11 @@ section[id]{scroll-margin-top:var(--hh,72px)}
   #sobre .qpics{height:clamp(280px,40vh,360px);grid-template-rows:1fr 1fr}
   #sobre .qpics figure{aspect-ratio:auto;height:100%}
 }
+
+/* espaçamento padrão entre as seções da home: 30px (10% a mais que o de Sobre → Conquistas) */
+:root{--secgap:30px}
+#sobre,#conquistas,#som,#datas,#contato{padding-block:calc(var(--secgap) / 2)}
+#sobre{padding-top:var(--secgap)}
+#contato{padding-bottom:var(--secgap)}
+#conquistas .rail{padding-bottom:0}
+#contato + footer{margin-top:0}
