@@ -20,7 +20,7 @@
 </header>
 
 <div class="vhero" id="top">
-  <img class="vposter" src="assets/hero-espera.jpg" alt="" data-fx="0.44" data-fy="0.74">
+  <img class="vposter" src="assets/hero-espera.jpg" alt="" data-fx="0.46" data-fy="0.895">
   <div class="vstage" aria-hidden="true"><div class="vslot"><div id="hp0"></div></div><div class="vslot"><div id="hp1"></div></div></div>
   <div class="vveil"></div>
   <a class="vtag" href="#sobre">10 anos de pista</a>
@@ -136,11 +136,13 @@
     while(one.scrollWidth>one.clientWidth+1&&fs>11){ fs-=0.25; one.style.fontSize=fs+'px'; }
     if(one.scrollWidth>one.clientWidth+1){ one.style.whiteSpace='normal'; one.style.fontSize=''; } }
   fitOne(); window.addEventListener('resize',fitOne); if(document.fonts){ document.fonts.ready.then(fitOne); }
-  // foto de espera do hero: enquadra o Totsik no canto inferior esquerdo, fora do logo
+  // foto de espera do hero: enquadra o Totsik no canto inferior esquerdo, fora do logo, com os pés acima do letreiro
   var vp=document.querySelector('.vposter');
   function framePoster(){ if(!vp||!vp.naturalWidth) return; var box=vp.parentNode, cw=box.clientWidth, ch=box.clientHeight;
     var iw=vp.naturalWidth, ih=vp.naturalHeight, fx=+vp.dataset.fx, fy=+vp.dataset.fy;
-    var tx=cw<700?0.24:0.16, ty=cw<700?0.80:0.76;   // onde ele fica na tela (largura, altura)
+    // ponto de referência = os pés; ficam logo acima do letreiro de estilos
+    var tk=document.querySelector('.ticker'), th=tk?tk.offsetHeight:0;
+    var tx=cw<700?0.26:0.18, ty=(ch-th-14)/ch;
     var need=Math.max(cw*tx/fx, cw*(1-tx)/(1-fx));  // largura mínima para cobrir a tela com ele nesse ponto
     var sc=Math.max(need/iw, ch*ty/(fy*ih), ch*(1-ty)/((1-fy)*ih), cw/iw, ch/ih);
     var w=iw*sc, h=ih*sc;
