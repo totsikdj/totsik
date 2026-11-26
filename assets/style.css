@@ -493,14 +493,6 @@ header .bar{padding:10px var(--pad);flex-wrap:nowrap;gap:10px;position:relative}
 /* menu da home: logo só depois do hero + nome da seção */
 header.hhome .mark{opacity:0;pointer-events:none;transition:opacity .6s ease}
 header.hhome.past .mark{opacity:1;pointer-events:auto}
-.secbar{display:none}
-header.hhome .secbar{display:block;max-height:0;overflow:hidden;opacity:0;border-top:1px solid transparent;transition:max-height .35s ease,opacity .35s ease}
-header.hhome.past.named .secbar{max-height:44px;opacity:1;border-top-color:var(--ln)}
-.secbar .wrap{padding-block:9px}
-#secname{font-family:Archivo;font-weight:700;font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--ac)}
-section[id]{scroll-margin-top:96px}
-@media (min-width:860px){section[id]{scroll-margin-top:104px}}
-
 /* conquistas: caixa vira laranja no hover */
 .box{transition:background .25s,color .25s,border-color .25s,transform .25s}
 @media (hover:hover){
@@ -528,3 +520,20 @@ a.vtag{transition:.2s}
 .hb .cta{font-size:clamp(11px,2.7vw,11.7px);padding:12.5px 18px;gap:9px}
 .hb .cta.ghost{min-width:clamp(135px,27vw,171px)}
 .hb{gap:11px}
+
+/* rolagem dos botões: seção começa logo abaixo do menu */
+section[id]{scroll-margin-top:var(--hh,72px)}
+
+/* sobre + conquistas cabem juntos numa tela */
+#sobre{padding-block:clamp(28px,4vw,40px) 12px}
+#sobre .quote{font-size:clamp(26px,4.2vw,40px)}
+#sobre .prose p{margin-bottom:10px}
+#conquistas{padding-top:12px;padding-bottom:clamp(32px,5vw,48px)}
+#conquistas .eyebrow{margin-bottom:12px}
+#conquistas .box{padding:14px 16px}
+#conquistas .box p{font-size:13.5px;line-height:1.5}
+@media (min-width:980px){
+  #sobre .quem{grid-template-columns:1.15fr .85fr;gap:40px}
+  #sobre .qpics{height:clamp(280px,40vh,360px);grid-template-rows:1fr 1fr}
+  #sobre .qpics figure{aspect-ratio:auto;height:100%}
+}

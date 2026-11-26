@@ -6,7 +6,7 @@
 <title>Totsik — DJ · São Paulo</title>
 <meta name="description" content="Totsik (Ayrton Siqueira): DJ de Afro House, Organic House, Indie Dance e Brasilidades em São Paulo.">
 <meta property="og:title" content="Totsik — DJ · São Paulo"><meta property="og:description" content="Totsik (Ayrton Siqueira): DJ de Afro House, Organic House, Indie Dance e Brasilidades em São Paulo."><meta property="og:type" content="website">
-<link rel="stylesheet" href="assets/style.css?v=home4">
+<link rel="stylesheet" href="assets/style.css?v=home5">
 <script src="assets/rails.js?v=334a7b03" defer></script>
 </head>
 <body>
@@ -17,7 +17,6 @@
   <label class="navscrim" for="navt" aria-hidden="true"></label>
   <nav><ul><li><a class="on" href="index.html">Totsik</a></li><li><a class="" href="sala-club.html">Sala Club</a></li></ul></nav>
 </div>
-<div class="secbar" aria-live="polite"><div class="wrap"><span id="secname"></span></div></div>
 </header>
 
 <div class="vhero" id="top">
@@ -131,33 +130,15 @@
     if(d<t){li.classList.add('past');}
   });
   var hero=document.querySelector('.vhero'), head=document.querySelector('header.hhome');
-  var secname=document.getElementById('secname');
   // logo do menu só aparece depois que o hero sai da tela
   if(hero&&head&&'IntersectionObserver' in window){
     new IntersectionObserver(function(es){
       head.classList.toggle('past',!es[0].isIntersecting);
     },{rootMargin:'-80px 0px 0px 0px'}).observe(hero);
-    // nome da seção abaixo do menu só quando se clica num botão do hero;
-    // some quando a pessoa sai daquela seção
-    var watching=null, seen=false;
-    var spy=new IntersectionObserver(function(es){
-      es.forEach(function(e){
-        if(e.target!==watching) return;
-        if(e.isIntersecting){ seen=true; }
-        else if(seen){ head.classList.remove('named'); spy.unobserve(e.target); watching=null; }
-      });
-    },{rootMargin:'-110px 0px 0px 0px'});
-    document.querySelectorAll('a.hb, a.vtag').forEach(function(a){
-      a.addEventListener('click',function(){
-        var t=document.querySelector(a.getAttribute('href'));
-        if(!t) return;
-        if(watching){ spy.unobserve(watching); }
-        secname.textContent=t.getAttribute('data-name');
-        head.classList.add('named');
-        watching=t; seen=false; spy.observe(t);
-      });
-    });
   }
+  // a rolagem dos botões para com o começo da seção logo abaixo do menu
+  function setHH(){ if(head){ document.documentElement.style.setProperty('--hh',head.offsetHeight+'px'); } }
+  setHH(); window.addEventListener('resize',setHH);
 
   // loop de vídeo do hero: dois players, o próximo corte carrega por trás e entra quando já está tocando
   var clips=[["YOQJAbOUoR8",1500],["jxZe0UG1PW8",1300],["1XB58CdlZGM",1400],["rEjkSIUYQFY",2400],["p6yn4NKMNPQ",1500]], CLIP=9, i=0, ps=[], front=0, pending=false, timer;
