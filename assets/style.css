@@ -816,3 +816,11 @@ footer .fic[aria-label="WhatsApp"] svg,body.atend footer .fic[aria-label="WhatsA
 /* spotify: dica de ouvir no aleatório, entre a linha do título e as playlists */
 .sptip{display:flex;align-items:center;gap:8px;margin:-4px 0 12px;font-family:Archivo;font-weight:700;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mut)}
 .sptip svg{width:16px;height:16px;flex:none;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+
+/* próximas datas em duas colunas (lendo de cima para baixo, coluna da esquerda primeiro); no celular continua uma coluna */
+@media (min-width:760px){
+  .gigs{columns:2;column-gap:48px}
+  .gig{break-inside:avoid;-webkit-column-break-inside:avoid}
+  .gig{grid-template-columns:minmax(96px,max-content) 1fr auto;padding:18px 4px}
+  .gd{font-size:clamp(24px,3vw,34px)}
+}
