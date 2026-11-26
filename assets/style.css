@@ -539,7 +539,7 @@ section[id]{scroll-margin-top:var(--hh,72px)}
 }
 
 /* espaçamento padrão entre as seções da home: 30px (10% a mais que o de Sobre → Conquistas) */
-:root{--secgap:30px}
+:root{--secgap:60px}
 #sobre,#conquistas,#som,#datas,#contato{padding-block:calc(var(--secgap) / 2)}
 #sobre{padding-top:var(--secgap)}
 #contato{padding-bottom:var(--secgap)}
