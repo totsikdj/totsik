@@ -6,7 +6,7 @@
 <title>Totsik — DJ · São Paulo</title>
 <meta name="description" content="Totsik (Ayrton Siqueira): DJ de Afro House, Organic House, Indie Dance e Brasilidades em São Paulo.">
 <meta property="og:title" content="Totsik — DJ · São Paulo"><meta property="og:description" content="Totsik (Ayrton Siqueira): DJ de Afro House, Organic House, Indie Dance e Brasilidades em São Paulo."><meta property="og:type" content="website">
-<link rel="stylesheet" href="assets/style.css?v=home3">
+<link rel="stylesheet" href="assets/style.css?v=home4">
 <script src="assets/rails.js?v=334a7b03" defer></script>
 </head>
 <body>
@@ -15,7 +15,7 @@
   <input type="checkbox" id="navt" class="navt">
   <label class="burger-btn" for="navt" aria-label="Abrir menu"><span class="burger"><i></i><i></i><i></i></span></label>
   <label class="navscrim" for="navt" aria-hidden="true"></label>
-  <nav><ul><li><a class="on" href="index.html">Sobre</a></li><li><a class="" href="sala-club.html">Sala Club</a></li></ul></nav>
+  <nav><ul><li><a class="on" href="index.html">Totsik</a></li><li><a class="" href="sala-club.html">Sala Club</a></li></ul></nav>
 </div>
 <div class="secbar" aria-live="polite"><div class="wrap"><span id="secname"></span></div></div>
 </header>
@@ -24,7 +24,7 @@
   <img class="vposter" src="assets/hero-wide.jpg" alt="">
   <div class="vstage" aria-hidden="true"><div class="vslot"><div id="hp0"></div></div><div class="vslot"><div id="hp1"></div></div></div>
   <div class="vveil"></div>
-  <div class="vtag">10 anos de pista</div>
+  <a class="vtag" href="#sobre">10 anos de pista</a>
   <div class="vinner">
     <h1 class="vlogo"><img src="assets/logo.png" alt="Totsik"></h1>
     <div class="vctas">
@@ -41,7 +41,7 @@
     <div class="qtxt">
       <div class="eyebrow">#01 · Sobre</div>
       <h2 class="quote">“Você toca o quê?”<br><span>Eu toco músicas que eu gosto!</span></h2>
-      <div class="prose" style="margin-top:20px"><p>Passando por diversas vertentes da <b>house music</b> e indo até clássicos dos <b>anos 2000</b> ou da <b>MPB</b>, Ayrton Siqueira a.k.a. <b>Totsik</b> entrega sempre apresentações com muita conexão com a pista.</p><p>Pode esperar muito <b>groove</b>, <b>pesquisa musical</b>, <b>melodias</b> e uma <b>energia sem igual</b>.</p></div>
+      <div class="prose" style="margin-top:20px"><p>Passando por diferentes vertentes da <b>House Music</b> e indo até clássicos dos <b>anos 2000</b> e da <b>música brasileira</b>, Ayrton Siqueira a.k.a. <b>Totsik</b> entrega sempre apresentações com muita conexão com a pista.</p><p>Pode esperar muito <b>groove</b>, <b>pesquisa musical</b>, <b>melodias</b> e uma <b>energia sem igual</b>.</p></div>
     </div>
     <div class="qpics">
       <figure class="a"><img src="assets/retrato-2.jpg" alt="Totsik" loading="lazy" style="object-position:50.0% 5.0%"></figure>
@@ -137,16 +137,24 @@
     new IntersectionObserver(function(es){
       head.classList.toggle('past',!es[0].isIntersecting);
     },{rootMargin:'-80px 0px 0px 0px'}).observe(hero);
-    // nome da seção atual logo abaixo do menu
-    var secs=[].slice.call(document.querySelectorAll('section[data-name]'));
+    // nome da seção abaixo do menu só quando se clica num botão do hero;
+    // some quando a pessoa sai daquela seção
+    var watching=null, seen=false;
     var spy=new IntersectionObserver(function(es){
-      es.forEach(function(e){ if(e.isIntersecting){ secname.textContent=e.target.getAttribute('data-name'); } });
-    },{rootMargin:'-35% 0px -60% 0px'});
-    secs.forEach(function(s){spy.observe(s);});
-    document.querySelectorAll('a.hb').forEach(function(a){
+      es.forEach(function(e){
+        if(e.target!==watching) return;
+        if(e.isIntersecting){ seen=true; }
+        else if(seen){ head.classList.remove('named'); spy.unobserve(e.target); watching=null; }
+      });
+    },{rootMargin:'-110px 0px 0px 0px'});
+    document.querySelectorAll('a.hb, a.vtag').forEach(function(a){
       a.addEventListener('click',function(){
         var t=document.querySelector(a.getAttribute('href'));
-        if(t){secname.textContent=t.getAttribute('data-name');}
+        if(!t) return;
+        if(watching){ spy.unobserve(watching); }
+        secname.textContent=t.getAttribute('data-name');
+        head.classList.add('named');
+        watching=t; seen=false; spy.observe(t);
       });
     });
   }
@@ -167,17 +175,27 @@
         onError:function(){ if(k!==front&&pending){ i=(i+1)%clips.length; ps[k].loadVideoById({videoId:clips[i][0],startSeconds:clips[i][1]}); } }
       }});
   }
+  // SETTLE: espera o player tocar de verdade antes de mostrar, para nunca
+  // aparecer capa, carregando ou ícone de play/pause do YouTube
+  var SETTLE=900, started=false;
   function onState(k,st){
+    // se o navegador pausar o vídeo da frente, volta para a foto em vez de mostrar o player parado
+    if(k===front&&started&&!pending&&(st===2||st===0)){ hero.classList.remove('playing'); return; }
     if(st!==1) return;
-    if(k===front&&!hero.classList.contains('playing')){
-      hero.classList.add('playing'); slots[k].classList.add('on');
+    if(k===front&&started){ hero.classList.add('playing'); return; }
+    if(k===front&&!started){
+      started=true;
+      setTimeout(function(){ hero.classList.add('playing'); slots[k].classList.add('on'); },SETTLE);
       timer=setTimeout(next,CLIP*1000);
     } else if(k!==front&&pending){
       pending=false;
-      slots[k].classList.add('on'); slots[front].classList.remove('on');
-      var old=front; front=k;
-      setTimeout(function(){ try{ps[old].pauseVideo();}catch(_){}} ,500);
-      clearTimeout(timer); timer=setTimeout(next,CLIP*1000);
+      setTimeout(function(){
+        slots[k].classList.add('on'); slots[front].classList.remove('on');
+        var old=front; front=k;
+        // só pausa o anterior depois que ele já sumiu por completo
+        setTimeout(function(){ if(old!==front){ try{ps[old].pauseVideo();}catch(_){} } },1500);
+        clearTimeout(timer); timer=setTimeout(next,CLIP*1000-SETTLE);
+      },SETTLE);
     }
   }
   function next(){
