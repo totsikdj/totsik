@@ -7,12 +7,9 @@ HTML/CSS estático, sem build step, sem dependências.
 
 | Arquivo | O quê |
 |---|---|
-| `index.html` | Home — hero, quem é, Sala Club, música (YouTube/SoundCloud/Spotify), conquistas |
-| `sobre.html` | Bio completa, um parágrafo por foto |
+| `index.html` | Home: hero em vídeo, #01 Sobre, #02 Conquistas, #03 Solta o som, #04 Próximas datas, #05 Contato |
 | `sala-club.html` | O projeto: 15 artistas convidados + 10 episódios do Totsik |
 | `artista-*.html` | Uma página por artista convidado (estilo, origem, set em vídeo e áudio) |
-| `musica.html` | YouTube, SoundCloud (5 mais recentes) e playlists do Spotify |
-| `contato.html` | Formulário que abre o WhatsApp com a mensagem pronta |
 | `v2.html` | Versão alternativa: onepage resumida |
 
 ## Assets
@@ -22,7 +19,7 @@ HTML/CSS estático, sem build step, sem dependências.
 - `assets/*.ttf` — Archivo e Inter estáticas, servidas localmente
 - `assets/sets/` — capas dos episódios do Sala Club
 - `assets/artistas/` — fotos dos artistas convidados
-- `assets/TOTSIK-PRESS-KIT.pdf` — press kit em PDF, 2 páginas
+- `assets/TOTSIK-PRESS-KIT.pdf` — press kit em PDF (o botão do site abre a pasta do Google Drive)
 
 ## Rodar local
 

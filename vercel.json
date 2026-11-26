@@ -54,26 +54,6 @@
       "source": "/sobre.html",
       "destination": "/#sobre",
       "permanent": true
-    },
-    {
-      "source": "/musica",
-      "destination": "/#som",
-      "permanent": true
-    },
-    {
-      "source": "/musica.html",
-      "destination": "/#som",
-      "permanent": true
-    },
-    {
-      "source": "/contato",
-      "destination": "/#contato",
-      "permanent": true
-    },
-    {
-      "source": "/contato.html",
-      "destination": "/#contato",
-      "permanent": true
     }
   ]
 }
