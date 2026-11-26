@@ -617,3 +617,4 @@ body.hasmp footer{padding-bottom:calc(48px + 60px)}
 
 /* letreiro do hero fica acima do mini-player */
 body.hasmp .vhero{min-height:clamp(480px,calc(100svh - var(--hh,72px) - 46px),860px)}
+.gtrack figure a{display:block;width:100%;height:100%}
