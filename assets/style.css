@@ -545,3 +545,63 @@ section[id]{scroll-margin-top:var(--hh,72px)}
 #contato{padding-bottom:var(--secgap)}
 #conquistas .rail{padding-bottom:0}
 #contato + footer{margin-top:0}
+
+/* ============ ajustes 2 ============ */
+/* conquistas: mesma animação dos cards de "Solta o som", letras em laranja */
+@media (hover:hover){
+  .box:hover{background:var(--pan);border-color:var(--ac);transform:translateY(-3px)}
+  .box:hover h3,.box:hover p{color:var(--ac)}
+}
+/* carrossel de fotos tocando */
+.igal{display:block;position:relative;margin-top:18px;width:100%}
+.gtrack{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.gtrack::-webkit-scrollbar{display:none}
+.gtrack figure{flex:0 0 72%;aspect-ratio:4/5;border-radius:10px;overflow:hidden;scroll-snap-align:start;background:var(--pan);border:1px solid var(--ln)}
+.gtrack img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+@media (min-width:620px){.gtrack figure{flex-basis:calc((100% - 20px)/3)}}
+@media (min-width:980px){.gtrack figure{flex-basis:calc((100% - 40px)/5)}}
+@media (hover:hover){.gtrack figure:hover img{transform:scale(1.04)}}
+.gnav{position:absolute;top:50%;transform:translateY(-50%);z-index:2;width:40px;height:40px;border-radius:50%;border:1px solid rgba(244,241,238,.35);background:rgba(11,11,13,.6);backdrop-filter:blur(6px);color:var(--ink);font-size:22px;line-height:1;cursor:pointer;display:none;place-items:center;transition:.2s}
+.gnav.prev{left:8px}.gnav.next{right:8px}
+@media (hover:hover){.gnav{display:grid}.gnav:hover{border-color:var(--ac);color:var(--ac)}}
+
+/* youtube: prévia sem som no hover */
+.vthumb{position:relative}
+.vprev{position:absolute;inset:0;overflow:hidden;opacity:0;transition:opacity .4s;pointer-events:none;z-index:3;background:#000}
+.vprev iframe{position:absolute;top:50%;left:50%;width:100%;height:100%;border:0;transform:translate(-50%,-50%) scale(1.4)}
+.vprev.on{opacity:1}
+
+/* soundcloud: capa no lugar do botão */
+.track.sct{padding:10px;gap:14px}
+.track.sct .cv{width:64px;height:64px;border-radius:6px;object-fit:cover;flex:none;background:var(--ln)}
+.track.sct .t{font-weight:600}
+
+/* spotify: capas, 6 playlists */
+.pls6{display:grid;gap:8px;grid-template-columns:repeat(2,1fr);padding-top:4px}
+@media (min-width:560px){.pls6{grid-template-columns:repeat(3,1fr)}}
+@media (min-width:980px){.pls6{grid-template-columns:repeat(6,1fr);gap:10px}}
+.pl.plc{padding:8px 8px 12px;min-height:0;gap:10px}
+.pl.plc .cv{width:100%;aspect-ratio:1;border-radius:6px;object-fit:cover;background:var(--ln)}
+.pl.plc .t{padding-inline:4px}
+
+/* datas que já passaram somem */
+.gig.past{display:none}
+
+/* contato: laranja menos saturado */
+.strip.contact{background:#D9805F}
+
+/* rodapé: Brasil com S à esquerda, made by humans à direita */
+.fbot{justify-content:space-between}
+
+/* mini-player fixo do SoundCloud */
+.mplayer{position:fixed;left:0;right:0;bottom:0;z-index:60;display:flex;align-items:center;gap:12px;padding:8px var(--pad);background:rgba(11,11,13,.92);backdrop-filter:blur(10px);border-top:1px solid var(--ln);transform:translateY(100%);transition:transform .4s ease}
+body.hasmp .mplayer{transform:none}
+.mpl{flex:none;font-family:Archivo;font-weight:700;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ac)}
+.mpf{flex:1;min-width:0;height:20px}
+.mpf iframe{width:100%;height:20px;border:0;display:block}
+.mps,.mpx{flex:none;width:28px;height:28px;border-radius:50%;border:1px solid var(--ln);background:transparent;color:var(--ink);font-size:15px;line-height:1;cursor:pointer;display:grid;place-items:center;transition:.2s}
+@media (hover:hover){.mps:hover,.mpx:hover{border-color:var(--ac);color:var(--ac)}}
+@media (max-width:520px){.mpl{display:none}}
+body.hasmp .wafab{bottom:calc(60px + env(safe-area-inset-bottom))}
+@media (min-width:760px){body.hasmp .wafab{bottom:66px}}
+body.hasmp footer{padding-bottom:calc(48px + 60px)}
