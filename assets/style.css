@@ -778,3 +778,12 @@ footer .fbot .fics{margin-right:auto}
   footer .fbot .fics{justify-content:flex-start}
 }
 @media (max-width:759px){footer .fbot > span.frs{width:min-content}}
+/* rodapé: a borda do botão acompanha a cor do ícone */
+@media (hover:hover){
+  footer .fic[aria-label="Instagram"]:hover{border-color:#E1306C}
+  footer .fic[aria-label="SoundCloud"]:hover{border-color:#FF5500}
+  footer .fic[aria-label="YouTube"]:hover{border-color:#FF0000}
+  footer .fic[aria-label="Spotify"]:hover{border-color:#1DB954}
+  footer .fic[aria-label="WhatsApp"]:hover{border-color:#25D366}
+}
+body.atend footer .fic[aria-label="WhatsApp"]{border-color:var(--wa)}
