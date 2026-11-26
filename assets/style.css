@@ -651,3 +651,6 @@ body.hasmp .wafab{bottom:calc(104px + env(safe-area-inset-bottom))}
 @media (min-width:980px){
   #sobre .quem{grid-template-columns:1.32fr .78fr;gap:40px}
 }
+/* conquistas: cada linha justificada, sem ponto no começo */
+#conquistas .box .ln{display:block;text-align:justify;text-align-last:justify}
+#conquistas .box .ln.last{text-align-last:auto}
