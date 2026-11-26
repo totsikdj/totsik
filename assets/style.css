@@ -792,3 +792,14 @@ footer .fic[aria-label="WhatsApp"] svg,body.atend footer .fic[aria-label="WhatsA
 @media (hover:hover){.wafab:hover{box-shadow:0 10px 30px rgba(0,0,0,.5)}}
 /* hover do WhatsApp no rodapé acende a borda verde também no fim da página */
 @media (hover:hover){footer .fic[aria-label="WhatsApp"]:hover,body.atend footer .fic[aria-label="WhatsApp"]:hover{border-color:#25D366}}
+
+/* mini-player no celular: botão e título próprios; o player do SoundCloud fica escondido tocando por trás */
+.mpp,.mpt{display:none}
+@media (max-width:759px){
+  .mplayer .mpf{position:absolute;left:-9999px;top:0;width:320px;height:166px;opacity:0;pointer-events:none}
+  .mplayer .mpf iframe{width:320px;height:166px}
+  .mpp{display:grid;place-items:center;flex:none;width:34px;height:34px;border-radius:50%;border:0;background:var(--ac);cursor:pointer}
+  .mpp span{width:0;height:0;border-left:11px solid #0B0B0D;border-top:7px solid transparent;border-bottom:7px solid transparent;margin-left:3px}
+  .mplayer.on .mpp span{width:10px;height:12px;border:0;margin:0;border-left:3px solid #0B0B0D;border-right:3px solid #0B0B0D}
+  .mpt{display:block;flex:1;min-width:0;font-size:12.5px;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+}
