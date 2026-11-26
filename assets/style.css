@@ -628,3 +628,10 @@ body.hasmp .wafab{bottom:calc(104px + env(safe-area-inset-bottom))}
 @media (min-width:760px){body.hasmp .wafab{bottom:108px}}
 /* press kit no hover: laranja, borda preta grossa, letra preta */
 @media (hover:hover){.strip .cta.ghost.dark:hover{background:var(--ac);color:#0B0B0D;border:3px solid #0B0B0D}}
+
+/* ============ ajustes 5 ============ */
+/* textos de Sobre e Conquistas justificados */
+#sobre .prose p,#conquistas .box p{text-align:justify;hyphens:none}
+#sobre .prose p.oneline{text-align:left;max-width:none}
+/* nomes dos lugares nunca quebram no meio */
+.box .nw{white-space:nowrap}
