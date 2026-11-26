@@ -6,7 +6,7 @@
 <title>Totsik — DJ · São Paulo</title>
 <meta name="description" content="Totsik (Ayrton Siqueira): DJ de Afro House, Organic House, Indie Dance e Brasilidades em São Paulo.">
 <meta property="og:title" content="Totsik — DJ · São Paulo"><meta property="og:description" content="Totsik (Ayrton Siqueira): DJ de Afro House, Organic House, Indie Dance e Brasilidades em São Paulo."><meta property="og:type" content="website">
-<link rel="stylesheet" href="assets/style.css?v=home21">
+<link rel="stylesheet" href="assets/style.css?v=home22">
 <script src="assets/rails.js?v=334a7b03" defer></script>
 </head>
 <body>
@@ -15,7 +15,7 @@
   <input type="checkbox" id="navt" class="navt">
   <label class="burger-btn" for="navt" aria-label="Abrir menu"><span class="burger"><i></i><i></i><i></i></span></label>
   <label class="navscrim" for="navt" aria-hidden="true"></label>
-  <nav><ul><li><a class="on" href="index.html">Totsik</a></li><li><a class="" href="sala-club.html">Sala Club</a></li></ul></nav>
+  <nav><ul><li><a class="on" href="index.html">Totsik</a></li><li class="mnav"><a href="#sobre">10 anos de pista</a></li><li class="mnav"><a href="#som">Escute agora</a></li><li class="mnav"><a href="#datas">Próximas datas</a></li><li class="mnav"><a href="#contato">Contato</a></li><li><a class="" href="sala-club.html">Sala Club</a></li></ul></nav>
 </div>
 </header>
 
@@ -162,6 +162,9 @@
   fixLines(); window.addEventListener('resize',fixLines); if(document.fonts){ document.fonts.ready.then(fixLines); }
   // no celular, Spotify vira carrossel como YouTube e SoundCloud (no PC fica a grade de 6)
   if(window.matchMedia('(max-width:979px)').matches){ var spl=document.querySelector('.pls6'); if(spl){ spl.classList.add('rail'); } }
+  // menu do celular fecha ao escolher uma seção
+  var navt=document.getElementById('navt');
+  document.querySelectorAll('header nav a').forEach(function(a){ a.addEventListener('click',function(){ if(navt){ navt.checked=false; } }); });
   // mini-player: set aleatório do SoundCloud
   var radio=["sala-club-totsik-7","sala-club-totsik-6","sala-club-lovat-x-totsik","sala-club-totsik-5","sala-club-totsik-4-feat-melon-blush","sala-club-totsik-3","sala-club-totsik-2","sala-club-totsik-1","2025-keinemusik-recap","snst-dj-contest-totsik","dedge-contest","totcast-10","special-cut-v","special-cut-iv","totcast-9","totcast-8","totcast-br","special-cut-iii","african-stories","totcast-proximo","special-cut-ii","special-cut-i","african-sides","totcast-6","african-souls","totcast-5","stuxnet-live","african-dreams","totcast-4","totcast-3","totcast-2","african-beats","totcast-1","african-waves"], mp=document.getElementById('mplayer');
   if(mp){
