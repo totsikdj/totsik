@@ -642,6 +642,3 @@ body.hasmp .wafab{bottom:calc(104px + env(safe-area-inset-bottom))}
 .qpics .a{grid-column:2;grid-row:1/3}
 .qpics .b{grid-column:1;grid-row:1}
 .qpics .c{grid-column:1;grid-row:2}
-/* conquistas justificadas: cada nome é um bloco inteiro; o ponto do fim da linha fica invisível */
-#conquistas .box p{text-align:justify}
-#conquistas .box .nw{display:inline-block}

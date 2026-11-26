@@ -6,7 +6,7 @@
 <title>Totsik — DJ · São Paulo</title>
 <meta name="description" content="Totsik (Ayrton Siqueira): DJ de Afro House, Organic House, Indie Dance e Brasilidades em São Paulo.">
 <meta property="og:title" content="Totsik — DJ · São Paulo"><meta property="og:description" content="Totsik (Ayrton Siqueira): DJ de Afro House, Organic House, Indie Dance e Brasilidades em São Paulo."><meta property="og:type" content="website">
-<link rel="stylesheet" href="assets/style.css?v=home16">
+<link rel="stylesheet" href="assets/style.css?v=home17">
 <script src="assets/rails.js?v=334a7b03" defer></script>
 </head>
 <body>
@@ -20,7 +20,7 @@
 </header>
 
 <div class="vhero" id="top">
-  <img class="vposter" src="assets/hero-wide.jpg" alt="">
+  <img class="vposter" src="assets/hero-espera.jpg" alt="" data-fx="0.44" data-fy="0.74">
   <div class="vstage" aria-hidden="true"><div class="vslot"><div id="hp0"></div></div><div class="vslot"><div id="hp1"></div></div></div>
   <div class="vveil"></div>
   <a class="vtag" href="#sobre">10 anos de pista</a>
@@ -136,12 +136,17 @@
     while(one.scrollWidth>one.clientWidth+1&&fs>11){ fs-=0.25; one.style.fontSize=fs+'px'; }
     if(one.scrollWidth>one.clientWidth+1){ one.style.whiteSpace='normal'; one.style.fontSize=''; } }
   fitOne(); window.addEventListener('resize',fitOne); if(document.fonts){ document.fonts.ready.then(fitOne); }
-  // conquistas: o ponto só separa nomes na mesma linha; no fim da linha ele some
-  function seps(){ document.querySelectorAll('.box p').forEach(function(p){
-    var it=p.querySelectorAll('.nw');
-    for(var n=0;n<it.length-1;n++){ var s=it[n].querySelector('.sep'); if(!s) continue;
-      s.classList.remove('end'); s.style.visibility=''; } for(n=0;n<it.length-1;n++){ var s2=it[n].querySelector('.sep'); if(s2&&it[n+1].offsetTop>it[n].offsetTop+2){ s2.classList.add('end'); s2.style.visibility='hidden'; } } }); }
-  seps(); window.addEventListener('resize',seps); window.addEventListener('load',seps); if(document.fonts){ document.fonts.ready.then(seps); }
+  // foto de espera do hero: enquadra o Totsik no canto inferior esquerdo, fora do logo
+  var vp=document.querySelector('.vposter');
+  function framePoster(){ if(!vp||!vp.naturalWidth) return; var box=vp.parentNode, cw=box.clientWidth, ch=box.clientHeight;
+    var iw=vp.naturalWidth, ih=vp.naturalHeight, fx=+vp.dataset.fx, fy=+vp.dataset.fy;
+    var tx=cw<700?0.24:0.16, ty=cw<700?0.80:0.76;   // onde ele fica na tela (largura, altura)
+    var need=Math.max(cw*tx/fx, cw*(1-tx)/(1-fx));  // largura mínima para cobrir a tela com ele nesse ponto
+    var sc=Math.max(need/iw, ch*ty/(fy*ih), ch*(1-ty)/((1-fy)*ih), cw/iw, ch/ih);
+    var w=iw*sc, h=ih*sc;
+    vp.style.cssText='inset:auto;max-width:none;max-height:none;object-fit:fill;width:'+w+'px;height:'+h+'px;left:'+(tx*cw-fx*w)+'px;top:'+(ty*ch-fy*h)+'px';
+  }
+  if(vp){ if(vp.complete){framePoster();} vp.addEventListener('load',framePoster); window.addEventListener('resize',framePoster); }
   // mini-player: set aleatório do SoundCloud
   var radio=["sala-club-totsik-7","sala-club-totsik-6","sala-club-lovat-x-totsik","sala-club-totsik-5","sala-club-totsik-4-feat-melon-blush","sala-club-totsik-3","sala-club-totsik-2","sala-club-totsik-1","2025-keinemusik-recap","snst-dj-contest-totsik","dedge-contest","totcast-10","special-cut-v","special-cut-iv","totcast-9","totcast-8","totcast-br","special-cut-iii","african-stories","totcast-proximo","special-cut-ii","special-cut-i","african-sides","totcast-6","african-souls","totcast-5","stuxnet-live","african-dreams","totcast-4","totcast-3","totcast-2","african-beats","totcast-1","african-waves"], mp=document.getElementById('mplayer');
   if(mp){
