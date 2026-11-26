@@ -6,7 +6,7 @@
 <title>Totsik — DJ · São Paulo</title>
 <meta name="description" content="Totsik (Ayrton Siqueira): DJ de Afro House, Organic House, Indie Dance e Brasilidades em São Paulo.">
 <meta property="og:title" content="Totsik — DJ · São Paulo"><meta property="og:description" content="Totsik (Ayrton Siqueira): DJ de Afro House, Organic House, Indie Dance e Brasilidades em São Paulo."><meta property="og:type" content="website">
-<link rel="stylesheet" href="assets/style.css?v=home15">
+<link rel="stylesheet" href="assets/style.css?v=home16">
 <script src="assets/rails.js?v=334a7b03" defer></script>
 </head>
 <body>
@@ -140,7 +140,7 @@
   function seps(){ document.querySelectorAll('.box p').forEach(function(p){
     var it=p.querySelectorAll('.nw');
     for(var n=0;n<it.length-1;n++){ var s=it[n].querySelector('.sep'); if(!s) continue;
-      s.style.visibility=(it[n+1].offsetTop>it[n].offsetTop+2)?'hidden':''; } }); }
+      s.classList.remove('end'); s.style.visibility=''; } for(n=0;n<it.length-1;n++){ var s2=it[n].querySelector('.sep'); if(s2&&it[n+1].offsetTop>it[n].offsetTop+2){ s2.classList.add('end'); s2.style.visibility='hidden'; } } }); }
   seps(); window.addEventListener('resize',seps); window.addEventListener('load',seps); if(document.fonts){ document.fonts.ready.then(seps); }
   // mini-player: set aleatório do SoundCloud
   var radio=["sala-club-totsik-7","sala-club-totsik-6","sala-club-lovat-x-totsik","sala-club-totsik-5","sala-club-totsik-4-feat-melon-blush","sala-club-totsik-3","sala-club-totsik-2","sala-club-totsik-1","2025-keinemusik-recap","snst-dj-contest-totsik","dedge-contest","totcast-10","special-cut-v","special-cut-iv","totcast-9","totcast-8","totcast-br","special-cut-iii","african-stories","totcast-proximo","special-cut-ii","special-cut-i","african-sides","totcast-6","african-souls","totcast-5","stuxnet-live","african-dreams","totcast-4","totcast-3","totcast-2","african-beats","totcast-1","african-waves"], mp=document.getElementById('mplayer');
