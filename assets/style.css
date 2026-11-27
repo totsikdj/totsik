@@ -863,3 +863,6 @@ footer .fic[aria-label="WhatsApp"] svg,body.atend footer .fic[aria-label="WhatsA
 @media (max-width:759px){.sc-side{flex-direction:row-reverse}}
 /* sala club: no PC o texto quebra depois de "amigos"; no celular/tablet segue corrido */
 @media (max-width:979px){.pcbr{display:none}}
+
+/* hero: vídeos sem zoom extra (antes era scale 1.2) */
+.vslot iframe{transform:translate(-50%,-50%)}
