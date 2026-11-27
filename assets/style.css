@@ -824,3 +824,27 @@ footer .fic[aria-label="WhatsApp"] svg,body.atend footer .fic[aria-label="WhatsA
   .gig{grid-template-columns:minmax(96px,max-content) 1fr auto;padding:18px 4px}
   .gd{font-size:clamp(24px,3vw,34px)}
 }
+
+/* ============ #03 Sala Club (seção nova na home) ============ */
+#sala{padding-block:calc(var(--secgap) / 2)}
+.sc-top{display:flex;align-items:flex-start;justify-content:space-between;gap:24px}
+.sc-txt{max-width:62ch}
+.sc-h{font-size:clamp(24px,4vw,38px);line-height:1.1;margin-bottom:12px}
+.sc-h span{color:var(--ac)}
+.sc-txt p{font-size:clamp(15px,3.8vw,17px);line-height:1.6;color:#D5D0CA}
+.sc-txt p b{color:var(--ink);font-weight:600}
+.sc-more{flex:none;white-space:nowrap}
+.sc-nums{list-style:none;display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:26px}
+.sc-nums li{background:var(--pan);border:1px solid var(--ln);border-left:3px solid var(--ac);border-radius:8px;padding:16px 14px;display:flex;flex-direction:column;gap:4px;transition:border-color .25s,transform .25s}
+@media (hover:hover){.sc-nums li:hover{border-color:var(--ac);transform:translateY(-3px)}}
+.sc-nums b{font-family:Archivo;font-weight:700;font-size:clamp(24px,3vw,34px);line-height:1;color:var(--ac);white-space:nowrap}
+.sc-nums span{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut)}
+.sc-note{margin-top:10px;font-size:11.5px;color:var(--mut)}
+@media (max-width:979px){.sc-nums{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:759px){
+  .sc-top{flex-direction:column;gap:16px}
+  .sc-more{align-self:flex-start}
+  .sc-nums{grid-template-columns:repeat(2,1fr);gap:10px;margin-top:20px}
+  .sc-nums li{padding:14px 12px}
+  .sc-nums b{font-size:26px}
+}
