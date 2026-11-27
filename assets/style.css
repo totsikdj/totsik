@@ -861,3 +861,5 @@ footer .fic[aria-label="WhatsApp"] svg,body.atend footer .fic[aria-label="WhatsA
 }
 /* celular: botão "Saiba mais" à esquerda e logo à direita */
 @media (max-width:759px){.sc-side{flex-direction:row-reverse}}
+/* sala club: no PC o texto quebra depois de "amigos"; no celular/tablet segue corrido */
+@media (max-width:979px){.pcbr{display:none}}
