@@ -867,3 +867,6 @@ footer .fic[aria-label="WhatsApp"] svg,body.atend footer .fic[aria-label="WhatsA
 /* hero: vídeos sem zoom extra (antes era scale 1.2) */
 .vslot iframe{transform:translate(-50%,-50%)}
 @media (max-width:759px){.vslot iframe{transform:translate(-50%,-50%) scale(1.2)}}
+
+/* menu do celular: "Sala Club" leva à seção #03 da home, no lugar do link para a página */
+@media (max-width:759px){.dnav{display:none}}
